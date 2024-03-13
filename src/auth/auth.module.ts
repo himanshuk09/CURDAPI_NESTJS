@@ -22,6 +22,7 @@ import { ConfigService } from '@nestjs/config';
         };
       },
     }),
+    //mongodb  collection
     MongooseModule.forFeature([
       {
         name: 'User',

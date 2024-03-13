@@ -3,8 +3,6 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { CreateRestaurantDto } from './dto/create-restaurant.dto';
-import { UpdateRestaurantDto } from './dto/update-restaurant.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Restaurant } from './schemas/restaurant.schema';
 import mongoose from 'mongoose';
@@ -16,7 +14,7 @@ export class RestaurantsService {
     private restaurantModel: mongoose.Model<Restaurant>,
   ) {}
 
-  //get All Restaurants +> GEt /restaurants
+  //get All Restaurants => GEt /restaurants
   async findAll(): Promise<Restaurant[]> {
     const restaurants = await this.restaurantModel.find();
     return restaurants;
