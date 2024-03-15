@@ -13,6 +13,7 @@ import { RestaurantsService } from './restaurants.service';
 import { CreateRestaurantDto } from './dto/create-restaurant.dto';
 import { UpdateRestaurantDto } from './dto/update-restaurant.dto';
 import { Restaurant } from './schemas/restaurant.schema';
+import { ApiBody, ApiOperation, ApiResponse } from '@nestjs/swagger';
 
 @Controller('restaurants')
 export class RestaurantsController {
@@ -29,6 +30,21 @@ export class RestaurantsController {
   ): Promise<Restaurant> {
     return this.restaurantsService.create(restaurant);
   }
+
+  // @Post()
+  // @ApiOperation({
+  //   summary: 'create image.',
+  // })
+  // @ApiBody({ type: CreateRestaurantDto, required: true })
+  // @ApiResponse({
+  //   description: 'Image created',
+  // })
+  // async createImages(
+  //   @Body()
+  //   CreateImagebody: CreateRestaurantDto,
+  // ): Promise<Restaurant> {
+  //   return this.restaurantsService.create(CreateImagebody);
+  // }
 
   @Get(':id')
   async getRestaurant(@Param('id') id: string): Promise<Restaurant> {
